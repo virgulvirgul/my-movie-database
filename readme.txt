@@ -12,7 +12,11 @@ My Movie Database allows you to add detailed information about movies, tv shows 
 
 == Description ==
 
-The My Movie Database plugin compliments your content by adding information about the movies, the television shows and the people in the industry. You can use it via shortcodes or the standard posts method. This plugin was developed to enrich your movie or tvshow critique / review by 'automatically' adding the related information and allowing you to focus on your writing instead. The data comes from Movie Database (TMDb), the leading crowdsourced movie industry information community. 
+The My Movie Database plugin compliments your content by adding information about the movies, the television shows and the people in the industry. You can use it via shortcodes or the standard posts method. This plugin was developed to enrich your movie or tvshow critique / review by 'automatically' adding the related information and allowing you to focus on your writing instead. The data comes from the <a target="_blank" href="https://www.themoviedb.org">Movie Database (TMDb)</a>, the leading crowdsourced movie industry information community. 
+
+This means that this plugin will make calls to the <a target="_blank" href="https://www.themoviedb.org/documentation/api"> TMDb api</a> (in other words their 'website service') to retrieve the requested data. The TMDb API service is provided free of charge. 
+- The My-Movie-Database plugin uses the TMDb API but is in no way endorsed or certified by TMDb.
+- <a target="_blank" href="https://www.themoviedb.org/terms-of-use">TMDb terms of use</a>
 
 == Installation ==
 
@@ -89,7 +93,7 @@ See the configuration documentation page for more info.
 The plugin shortcode is [my_movie_db] . The parameters that can be set are <span>id</span>, <span>type</span>, <span>template</span> and <span>size</span>.
 
 ##### 1-) id
-The most important parameter is the id of the movie, tvshow or person info you wish to display.  This parameter corresponds to the unique id of the resource at the <a href="https://www.themoviedb.org">TMDb website</a>.
+The most important parameter is the id of the movie, tvshow or person info you wish to display.  This parameter corresponds to the unique id of the resource at the <a target="_blank" href="https://www.themoviedb.org">TMDb website</a>.
 
 You can find the id by searching for the movie, tvshow or person at the TMDb website or in the respective custom post type edit screen in your wordpress backend.
 

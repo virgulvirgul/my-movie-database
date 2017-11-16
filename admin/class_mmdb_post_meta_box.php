@@ -181,7 +181,7 @@ class MMDB_Meta_Box
 
 		if (!empty($_POST['key'])) {
 				
-			$result = $this->mmdb_search($_POST['key'],$_POST['posttype']);
+			$result = $this->mmdb_search(sanitize_text_field($_POST['key']),sanitize_text_field($_POST['posttype']));
 
 		}
 		else {
