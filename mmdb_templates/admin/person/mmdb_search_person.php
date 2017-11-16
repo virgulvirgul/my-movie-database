@@ -18,14 +18,15 @@
 
 		<!-- the post type template - for each - of the admin search results -->
         <div class="col-lg-4 col-md-6 col-sm-6">
-            <div id="<?php echo $mmdb_result->getID() ?>" class="movie-container" style="margin-bottom:40px"><img src=<?php echo $this->public_files->mmdb_get_profile($mmdb_result);?> />
+            <div id="<?php echo esc_attr($mmdb_result->getID()) ?>" class="movie-container" style="margin-bottom:40px">
+                <img src=<?php echo esc_url($this->public_files->mmdb_get_profile($mmdb_result))?> />
                 <div class="info">
-                    <h2><?php echo $mmdb_result->getName() ?> </h2>
-                    <p><strong><?php _e("TMDb ID: ", 'my-movie-db');?></strong><?php echo $mmdb_result->getID();?></p>
-										<?php if($mmdb_result->get('known_for')) { ?>
-				 						<div style="line-height: 15px; padding-top: 5px;"><strong><?php echo __("Known for", 'my-movie-db') . ': </strong>' . mmdb_get_csv_list($mmdb_result->get('known_for'), 'title', '30');?>
-										</div>
-										<?php } ?>
+                    <h2><?php echo esc_html($mmdb_result->getName()) ?> </h2>
+                    <p><strong><?php esc_html_e("TMDb ID: ", 'my-movie-db');?></strong><?php echo esc_html($mmdb_result->getID());?></p>
+                    <?php if($mmdb_result->get('known_for')) { ?>
+                    <div style="line-height: 15px; padding-top: 5px;"><strong><?php echo esc_html__("Known for", 'my-movie-db') . ': </strong>' . esc_html(mmdb_get_csv_list($mmdb_result->get('known_for'), 'title', '30'));?>
+                    </div>
+                    <?php } ?>
 				
                 </div>
 				<!-- don't change this unless you know exactly what you're doing!! -->

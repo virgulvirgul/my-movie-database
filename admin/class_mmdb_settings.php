@@ -70,7 +70,7 @@ class MMDB_Αdmin_Settings {
        		$sections[] =
             	array(
                	 'id'    => $plugin_admin_type->type_setting_id,
-                	'title' => __( "$plugin_admin_type->type_name Settings", 'my-movie-db' )
+                	'title' => esc_html__( "$plugin_admin_type->type_name Settings", 'my-movie-db' )
             	);
 
 			}
@@ -91,7 +91,7 @@ class MMDB_Αdmin_Settings {
         $sections[] = 
             array(
                 'id'    => 'mmdb_opt_basic',
-                'title' => __( 'Basic Settings', 'my-movie-db' )
+                'title' => esc_html__( 'Basic Settings', 'my-movie-db' )
             );
         return $sections;
     }
@@ -110,7 +110,7 @@ class MMDB_Αdmin_Settings {
         $sections[] = 
             array(
                 'id'    => 'mmdb_opt_advanced',
-                'title' => __( 'Advanced Settings', 'my-movie-db' )
+                'title' => esc_html__( 'Advanced Settings', 'my-movie-db' )
             );
         return $sections;
     }
@@ -161,44 +161,44 @@ class MMDB_Αdmin_Settings {
 
                  array(
                     'name'    => $plugin_type->tmpl_setting_id,
-                    'label'   => __( "$plugin_type->type_name template", 'my-movie-db' ),
-                    'desc'    => __( 'Select the template to use. The custom template is empty by default', 'my-movie-db' ),
+                    'label'   => esc_html__( "$plugin_type->type_name template", 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Select the template to use. The custom template is empty by default', 'my-movie-db' ),
                     'type'    => 'select',
                     'default' => 'tab-full',
                     'options' => array(
-                        'tabs' => __( 'With tabs', 'my-movie-db' ),
-                        'accordion' => __( 'With accordion', 'my-movie-db' ),
-                        'custom'  => __( 'Custom template', 'my-movie-db' ),
+                        'tabs' => esc_html__( 'With tabs', 'my-movie-db' ),
+                        'accordion' => esc_html__( 'With accordion', 'my-movie-db' ),
+                        'custom'  => esc_html__( 'Custom template', 'my-movie-db' ),
                     )
                 ),    
                  array(
                     'name'    => $plugin_type->width_setting_id,
-                    'label'   => __( "$plugin_type->type_name width", 'my-movie-db' ),
-                    'desc'    => __( 'Select the responsive widths to use. Full-width if you have a no sidebar layout, one-sidebar if you have, well, one sidebar(!), etc', 'my-movie-db' ),
+                    'label'   => esc_html__( "$plugin_type->type_name width", 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Select the responsive widths to use. Full-width if you have a no sidebar layout, one-sidebar if you have, well, one sidebar(!), etc', 'my-movie-db' ),
                     'type'    => 'select',
                     'default' => 'Full-width',
                     'options' => array(
-                        'large' => __( 'Full-width', 'my-movie-db' ),
-                        'medium' => __( 'One sidebar', 'my-movie-db' ),
-                        'small' => __( 'Two sidebars', 'my-movie-db' ),
+                        'large' => esc_html__( 'Full-width', 'my-movie-db' ),
+                        'medium' => esc_html__( 'One sidebar', 'my-movie-db' ),
+                        'small' => esc_html__( 'Two sidebars', 'my-movie-db' ),
                     )
                 ),    
 
                 array(
                     'name'    => $plugin_type->pos_setting_id,
-                    'label'   => __( 'Display position', 'my-movie-db' ),
-                    'desc'    => __( 'Choose to display MMDB info before or after the content', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Display position', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Choose to display MMDB info before or after the content', 'my-movie-db' ),
                     'type'    => 'radio',
                     'default' => 'after',
                     'options' => array(
-                        'after'  => __( 'After content', 'my-movie-db' ),
-                        'before' => __( 'Before content', 'my-movie-db' )
+                        'after'  => esc_html__( 'After content', 'my-movie-db' ),
+                        'before' => esc_html__( 'Before content', 'my-movie-db' )
                     )
                 ),
                 array(
                     'name'    => $plugin_type->sections_setting_id,
-                    'label'   => __( 'Hide sections', 'my-movie-db' ),
-                    'desc'    => __( 'Select the sections to be hidden', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Hide sections', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Select the sections to be hidden', 'my-movie-db' ),
                     'type'    => 'multicheck',
                     'default' => '',
                     'options' => $plugin_type->set_hide_sections_setting()
@@ -206,15 +206,15 @@ class MMDB_Αdmin_Settings {
 
                 array(
                     'name'    => $plugin_type->header_color_setting_id,
-                    'label'   => __( 'Header Background Color', 'my-movie-db' ),
-                    'desc'    => __( "Background color for the $plugin_type->type_slug headers", 'my-movie-db' ),
+                    'label'   => esc_html__( 'Header Background Color', 'my-movie-db' ),
+                    'desc'    => esc_html__( "Background color for the $plugin_type->type_slug headers", 'my-movie-db' ),
                     'type'    => 'color',
                     'default' => '#265a88'
                 ),
                 array(
                     'name'    => $plugin_type->body_color_setting_id,
-                    'label'   => __( 'Body Color', 'my-movie-db' ),
-                    'desc'    => __( "Background color for the $plugin_type->type_slug content", 'my-movie-db' ),
+                    'label'   => esc_html__( 'Body Color', 'my-movie-db' ),
+                    'desc'    => esc_html__( "Background color for the $plugin_type->type_slug content", 'my-movie-db' ),
                     'type'    => 'color',
                     'default' => '#DCDCDC'
                 ),
@@ -257,67 +257,67 @@ class MMDB_Αdmin_Settings {
        		'mmdb_opt_advanced' => array(
                 array(
                     'name'    => 'mmdb_movie_post_type',
-                    'label'   => __( 'Enable "Movies" section?', 'my-movie-db' ),
-                    'desc'    => __( 'Movies post type - what is to be done?', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Enable "Movies" section?', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Movies post type - what is to be done?', 'my-movie-db' ),
                     'type'    => 'radio',
                     'default' => 'movie',
                     'options' => array(
-                        'movie'  => __( 'Yes, use a "Movies" post section (custom post type)', 'my-movie-db' ),
-                        'posts_custom' => __( 'No, use Posts but change the "Posts" menu label to "Movies"', 'my-movie-db' ),
-                        'posts'  => __( 'No, use Posts and leave them as they are', 'my-movie-db' ),
-                        'no_post'  => __( 'None of the above, I only want to use Movies with shortcodes (or not at all)', 'my-movie-db' ),
+                        'movie'  => esc_html__( 'Yes, use a "Movies" post section (custom post type)', 'my-movie-db' ),
+                        'posts_custom' => esc_html__( 'No, use Posts but change the "Posts" menu label to "Movies"', 'my-movie-db' ),
+                        'posts'  => esc_html__( 'No, use Posts and leave them as they are', 'my-movie-db' ),
+                        'no_post'  => esc_html__( 'None of the above, I only want to use Movies with shortcodes (or not at all)', 'my-movie-db' ),
                     )
                 ),
                 array(
                     'name'    => 'mmdb_tvshow_post_type',
-                    'label'   => __( 'Enable "Tvshows" section?', 'my-movie-db' ),
-                    'desc'    => __( 'Tvshows post type - what is to be done?', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Enable "Tvshows" section?', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Tvshows post type - what is to be done?', 'my-movie-db' ),
                     'type'    => 'radio',
                     'default' => 'tvshow',
                     'options' => array(
-                        'tvshow'  => __( 'Yes, use a "TvShows" post section (custom post type)', 'my-movie-db' ),
-                        'no_post'  => __( 'No no, I only want to use TvShows with shortcodes (or not at all)', 'my-movie-db' ),
+                        'tvshow'  => esc_html__( 'Yes, use a "TvShows" post section (custom post type)', 'my-movie-db' ),
+                        'no_post'  => esc_html__( 'No no, I only want to use TvShows with shortcodes (or not at all)', 'my-movie-db' ),
                     )
                 ),
                 array(
                     'name'    => 'mmdb_person_post_type',
-                    'label'   => __( 'Enable "Persons" section?', 'my-movie-db' ),
-                    'desc'    => __( 'Persons post type - what is to be done?', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Enable "Persons" section?', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Persons post type - what is to be done?', 'my-movie-db' ),
                     'type'    => 'radio',
                     'default' => 'person',
                     'options' => array(
-                        'person'  => __( 'Yes, use a "Persons" post section (custom post type)', 'my-movie-db' ),
-                        'no_post'  => __( 'No no, I only want to use Persons with shortcodes (or not at all)', 'my-movie-db' ),
+                        'person'  => esc_html__( 'Yes, use a "Persons" post section (custom post type)', 'my-movie-db' ),
+                        'no_post'  => esc_html__( 'No no, I only want to use Persons with shortcodes (or not at all)', 'my-movie-db' ),
                     )
                 ),
                 array(
                     'name'    => 'mmdb_css_file',
-                    'label'   => __( 'Include mmdb css file', 'my-movie-db' ),
-                    'desc'    => __( 'Default templates require bootstrap libraries, select No if you dont want this plugin to include them', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Include mmdb css file', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Default templates require bootstrap libraries, select No if you dont want this plugin to include them', 'my-movie-db' ),
                     'type'    => 'select',
                     'default' => 'yes',
                     'options' => array(
-                        'yes'  => __( 'Yes, load it for posts that use my-movie-database only', 'my-movie-db' ),
-                        'all'  => __( 'Yes, but load it for all wp pages (for use with archive, etc)', 'my-movie-db' ),
-                        'no' => __( 'No',  'my-movie-db' )
+                        'yes'  => esc_html__( 'Yes, load it for posts that use my-movie-database only', 'my-movie-db' ),
+                        'all'  => esc_html__( 'Yes, but load it for all wp pages (for use with archive, etc)', 'my-movie-db' ),
+                        'no' => esc_html__( 'No',  'my-movie-db' )
                     )
                 ),
                 array(
                     'name'    => 'mmdb_bootstrap',
-                    'label'   => __( 'Include bootstrap', 'my-movie-db' ),
-                    'desc'    => __( 'Default templates require bootstrap libraries, select No if you dont want this plugin to include them', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Include bootstrap', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Default templates require bootstrap libraries, select No if you dont want this plugin to include them', 'my-movie-db' ),
                     'type'    => 'select',
                     'default' => 'yes',
                     'options' => array(
-                        'yes'  => __( 'Yes, load it for my-movie-database pages only', 'my-movie-db' ),
-                        'all'  => __( 'Yes, but load it for all wp pages', 'my-movie-db' ),
-                        'no' => __( 'No',  'my-movie-db' )
+                        'yes'  => esc_html__( 'Yes, load it for my-movie-database pages only', 'my-movie-db' ),
+                        'all'  => esc_html__( 'Yes, but load it for all wp pages', 'my-movie-db' ),
+                        'no' => esc_html__( 'No',  'my-movie-db' )
                     )
                 ),
                 array(
                     'name'    => 'mmdb_debug',
-                    'label'   => __( 'Debug Mode', 'my-movie-db' ),
-                    'desc'    => __( 'This will simply output the call to TMDB', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Debug Mode', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'This will simply output the call to TMDB', 'my-movie-db' ),
                     'type'    => 'radio',
                     'default' => false,
                     'options' => array(
@@ -326,17 +326,6 @@ class MMDB_Αdmin_Settings {
                     )
                 ),
 
-	/**
-                array(
-                    'name'              => 'mmdb_api_key',
-                    'label'             => __( 'TMDb API key', 'my-movie-db' ),
-                    'desc'              => __( 'If you want to use your own TMDb API key. If not, leave this blank.', 'my-movie-db' ),
-                    'placeholder'       => __( 'Your own TMDb API key', 'my-movie-db' ),
-					'type'              => 'text',
-                    'default'           => '',
-                    'sanitize_callback' => 'sanitize_text_field'
-                ),
-	 */
             )
 		);
 

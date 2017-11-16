@@ -14,7 +14,7 @@
 <!-- the post type template wrapper -->
 <div class="selection-wrapper">
     <div id="selected-status">
-	<?php _e("Nothing has been selected.", 'mmdb') . '<br />';?>
+	<?php esc_html_e("Nothing has been selected.", 'my-movie-db') . '<br />';?>
     </div>
     <div id="selected" style="text-align: center;">
     </div>

@@ -51,7 +51,7 @@ class MMDB_Meta_Box
 			//limit meta box to active post types
 			if (in_array($post_type, $active_post_type)) {
 				add_meta_box('cs-meta',
-				esc_html__($post_type, 'mmdb-wp'),
+				esc_html__($post_type, 'my-movie-db'),
 				array($this, "mmdb_id_class_meta_box"),
 				$post_type,
 				'normal',
@@ -96,19 +96,16 @@ class MMDB_Meta_Box
 
 		if ($mmdb_existing_id) {
 			$type_get = mmdb_get_type_attr($post_type);
-			$mmdb_type = new MMDB_Admin_Content_Type($type_get, $mmdb_existing_id);
-			$search_dbase = __("Search the database to change your selection", "mmdb");			
+			$mmdb_type = new MMDB_Admin_Content_Type($type_get, $mmdb_existing_id);	
 			echo $mmdb_type->mmdb_the_admin_content_view($mmdb_type);
 
 		}
 		else {
-			$search_dbase = __("Search the database to add the $post_type you want.", "mmdb");
-
 			$this->mmdb_no_selection_template();
 			
 		} 
 
-		$this->mmdb_post_meta_fields_template($search_dbase, $mmdb_existing_id);
+		$this->mmdb_post_meta_fields_template($mmdb_existing_id);
 
 	}
 
@@ -133,7 +130,7 @@ class MMDB_Meta_Box
 	 * @since     1.0.1  
 	 */
 
-	public function mmdb_post_meta_fields_template($search_dbase, $mmdb_existing_id) {
+	public function mmdb_post_meta_fields_template($mmdb_existing_id) {
 
 		$return = include plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/mmdb_post_meta_fields.php';
 
@@ -186,7 +183,7 @@ class MMDB_Meta_Box
 		}
 		else {
 
-			$result = __("You have not entered anything in the search field", "my-movie-db");
+			$result = esc_html__("You have not entered anything in the search field", "my-movie-db");
 		}
 		header("Content-Type: application/json");
 		echo json_encode($result);

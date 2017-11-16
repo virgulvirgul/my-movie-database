@@ -395,6 +395,7 @@ abstract class MMDB_Type {
 			$mmdb = $mmdb_type->get_tmdb_content($tmdb);
 			if ($mmdb) {
 				ob_start();
+				$mmdbID = $mmdb->getID();
 				if ($rules) {
 					$show_settings = $mmdb_type->mmdb_show_settings($mmdb_type->mmdb_view_sections());
 					$show_settings = $mmdb_type->mmdb_show_if_data($show_settings, $mmdb);

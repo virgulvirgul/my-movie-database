@@ -14,26 +14,27 @@
 <!-- the post type template wrapper -->
 <div class="selection-wrapper">
 
-    <?php echo _e( "You have selected : ", 'my-movie-db') . '<br />';?>
+    <?php echo esc_html_e( "You have selected : ", 'my-movie-db') . '<br />';?>
 
     <div id="selected" style="text-align: center;">
 
-        <div id="<?php echo $mmdb->getID() ?>" class="movie-container" style="margin-bottom:40px"><img src=<?php echo $this->public_files->mmdb_get_profile($mmdb); ?> />
+        <div id="<?php echo esc_attr($mmdb->getID()) ?>" class="movie-container" style="margin-bottom:40px">
+            <img src=<?php echo esc_url($this->public_files->mmdb_get_profile($mmdb)); ?> />
             <div class="info">
-                <h2><?php echo $mmdb->getName(); ?> </h2>
+                <h2><?php echo esc_html($mmdb->getName()) ?> </h2>
 				 <p></p>
 				<?php if($mmdb->getBirthday()) { ?>
-				 <p><?php echo __("Birthday", 'my-movie-db') . ':&nbsp;' . $mmdb->getBirthday(); ?></p>
+				 <p><?php echo esc_html__("Birthday", 'my-movie-db') . ':&nbsp;' . esc_html($mmdb->getBirthday()); ?></p>
 				<?php } ?>
 				<?php if($mmdb->getPlaceOfBirth()) { ?>
-				 <p><?php echo __("Birthplace", 'my-movie-db') . ':&nbsp;' . $mmdb->getPlaceOfBirth(); ?></p>
+				 <p><?php echo esc_html__("Birthplace", 'my-movie-db') . ':&nbsp;' . esc_html($mmdb->getPlaceOfBirth()); ?></p>
 				<?php } ?>
 				<?php if($mmdb->getDeathday()) { ?>
-				 <p><?php echo __("Death date", 'my-movie-db') . ':&nbsp;' . $mmdb->getDeathday(); ?></p>
+				 <p><?php echo esc_html__("Death date", 'my-movie-db') . ':&nbsp;' . esc_html($mmdb->getDeathday()); ?></p>
 				<?php } ?>
             </div>
             <div class="description">
-                <?php echo $mmdb->getΒiography() ?></div>
+                <?php echo esc_textarea($mmdb->getΒiography()) ?></div>
         </div>
 
     </div>

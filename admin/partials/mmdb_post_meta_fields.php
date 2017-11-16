@@ -14,20 +14,16 @@
 ?>
 <div class="clearfix"></div>
 <div class="panel panel-default">
-    <div class="panel-body" style="text-align: center;">';
+    <div class="panel-body" style="text-align: center;">
         <input type="hidden" name="MovieDatabaseID" id="MovieDatabaseID" value="<?php
-		echo $mmdb_existing_id; ?>"/>
+		echo esc_html($mmdb_existing_id); ?>"/>
         <br />
         <p>
-            <label for="key_mmdb">
-                <?php _e($search_dbase, 'mmdb-wp'); ?>
-            </label>
-            <br />
             <div class="col-lg-6 col-lg-offset-3">
-                <input type="text" name="key_mmdb" id="key_mmdb" value="<?php echo get_the_title() ?>" style="width:100%; margin-bottom:15px;"/>
+                <input type="text" name="key_mmdb" id="key_mmdb" value="<?php echo esc_html(get_the_title()) ?>" style="width:100%; margin-bottom:15px;"/>
             </div>
             <div class="col-lg-6 col-lg-offset-3" style="margin-bottom:15px;">
-                <div id="search_mmdb" class="button-primary" name="search_mmdb" style="cursor:pointer;" /> Search Database</div>
+                <div id="search_mmdb" class="button-primary" name="search_mmdb" style="cursor:pointer;" /> <?php esc_html_e('Search Database', 'my-movie-db'); ?></div>
             </div>
             <div class="clearfix"></div>
             <div id="resultHtml"></div>

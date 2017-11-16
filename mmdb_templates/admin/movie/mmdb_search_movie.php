@@ -18,19 +18,20 @@
 
 		<!-- the post type template - for each - of the admin search results -->
         <div class="col-lg-4 col-md-6 col-sm-6">
-            <div id="<?php echo $mmdb_result->getID() ?>" class="movie-container" style="margin-bottom:40px"><img src=<?php echo $this->public_files->mmdb_get_poster($mmdb_result)?> />
+            <div id="<?php echo esc_attr($mmdb_result->getID()) ?>" class="movie-container" style="margin-bottom:40px">
+                <img src=<?php echo esc_url($this->public_files->mmdb_get_poster($mmdb_result))?> />
                 <div class="info">
-                    <h2><?php echo $mmdb_result->getTitle() ?> </h2>
-                    <p><strong><?php echo substr($mmdb_result->getRelDate() , 0, 4) ?></strong> (
-                        <?php echo $mmdb_result->getVoteAverage() ?>/10) </p>
-                    <p><strong><?php _e("TMDb ID: ", 'my-movie-db');?></strong><?php echo $mmdb_result->getID();?></p>
+                    <h2><?php echo esc_html($mmdb_result->getTitle()) ?> </h2>
+                    <p><strong><?php echo esc_html(substr($mmdb_result->getRelDate() , 0, 4)) ?></strong> (
+                        <?php echo esc_html($mmdb_result->getVoteAverage()) ?>/10) </p>
+                    <p><strong><?php esc_html_e("TMDb ID: ", 'my-movie-db');?></strong><?php echo esc_html($mmdb_result->getID());?></p>
                 </div>
                 <div class="description">
-                    <?php echo $mmdb_result->getOverview() ?>
-								</div>
-								<!-- don't change this unless you know exactly what you're doing!! -->
-									<?php include __DIR__ . '/../partials/buttons.php'; ?>
-								<!-- oof!! -->
+                    <?php echo esc_textarea($mmdb_result->getOverview()) ?>
+                </div>
+                <!-- don't change this unless you know exactly what you're doing!! -->
+                <?php include __DIR__ . '/../partials/buttons.php'; ?>
+                <!-- oof!! -->
             </div>
         </div>
 

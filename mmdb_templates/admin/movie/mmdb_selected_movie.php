@@ -15,18 +15,19 @@
 <!-- the post type template wrapper -->
 <div class="selection-wrapper">
 
-    <?php echo _e( "You have selected : ", 'my-movie-db') . '<br />';?>
+    <?php echo esc_html_e( "You have selected : ", 'my-movie-db') . '<br />';?>
 
     <div id="selected" style="text-align: center;">
 
-        <div id="<?php echo $mmdb->getID() ?>" class="movie-container" style="margin-bottom:40px"><img src=<?php echo $this->public_files->mmdb_get_poster($mmdb); ?> />
+        <div id="<?php echo esc_attr($mmdb->getID()) ?>" class="movie-container" style="margin-bottom:40px">
+            <img src=<?php echo esc_url($this->public_files->mmdb_get_poster($mmdb)); ?> />
             <div class="info">
-                <h2><?php echo $mmdb->getTitle(); ?> </h2>
-                <p><strong><?php echo substr($mmdb->getRelDate() , 0, 4); ?></strong>
-                    <?php echo '(' . $mmdb->getVoteAverage(); ?>/10) </p>
+                <h2><?php echo esc_html($mmdb->getTitle()); ?> </h2>
+                <p><strong><?php echo esc_html(substr($mmdb->getRelDate() , 0, 4)); ?></strong>
+                    <?php echo '(' . esc_html($mmdb->getVoteAverage()); ?>/10) </p>
             </div>
             <div class="description">
-                <?php echo $mmdb->getOverview() ?></div>
+                <?php echo esc_textarea($mmdb->getOverview()) ?></div>
         </div>
 
     </div>
