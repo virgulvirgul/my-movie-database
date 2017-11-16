@@ -164,7 +164,7 @@ class MMDB_Αdmin_Settings {
                     'label'   => esc_html__( "$plugin_type->type_name template", 'my-movie-db' ),
                     'desc'    => esc_html__( 'Select the template to use. The custom template is empty by default', 'my-movie-db' ),
                     'type'    => 'select',
-                    'default' => 'tab-full',
+                    'default' => 'tabs',
                     'options' => array(
                         'tabs' => esc_html__( 'With tabs', 'my-movie-db' ),
                         'accordion' => esc_html__( 'With accordion', 'my-movie-db' ),
@@ -176,7 +176,7 @@ class MMDB_Αdmin_Settings {
                     'label'   => esc_html__( "$plugin_type->type_name width", 'my-movie-db' ),
                     'desc'    => esc_html__( 'Select the responsive widths to use. Full-width if you have a no sidebar layout, one-sidebar if you have, well, one sidebar(!), etc', 'my-movie-db' ),
                     'type'    => 'select',
-                    'default' => 'Full-width',
+                    'default' => 'large',
                     'options' => array(
                         'large' => esc_html__( 'Full-width', 'my-movie-db' ),
                         'medium' => esc_html__( 'One sidebar', 'my-movie-db' ),
@@ -209,6 +209,7 @@ class MMDB_Αdmin_Settings {
                     'label'   => esc_html__( 'Header Background Color', 'my-movie-db' ),
                     'desc'    => esc_html__( "Background color for the $plugin_type->type_slug headers", 'my-movie-db' ),
                     'type'    => 'color',
+                    'sanitize_callback' => 'sanitize_text_field',
                     'default' => '#265a88'
                 ),
                 array(
@@ -216,6 +217,7 @@ class MMDB_Αdmin_Settings {
                     'label'   => esc_html__( 'Body Color', 'my-movie-db' ),
                     'desc'    => esc_html__( "Background color for the $plugin_type->type_slug content", 'my-movie-db' ),
                     'type'    => 'color',
+                    'sanitize_callback' => 'sanitize_text_field',
                     'default' => '#DCDCDC'
                 ),
 
@@ -325,6 +327,7 @@ class MMDB_Αdmin_Settings {
                         true  => 'ON'
                     )
                 ),
+
 
             )
 		);
