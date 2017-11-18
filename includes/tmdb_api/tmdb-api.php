@@ -51,7 +51,7 @@ include("controller/classes/config/Configuration.php");
 class TMDB {
 
 	#@var string url of API TMDB
-	const _API_URL_ = "http://api.themoviedb.org/3/";
+	const _API_URL_ = "https://api.themoviedb.org/3/";
 
 	#@var string Version of this class
 	const VERSION = '0.5';
@@ -269,17 +269,11 @@ class TMDB {
 			echo '<pre><a href="' . $url . '">check request</a></pre>';
 		}
 
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+		//use Wordpress' HTTP API instead of own curl function - multiple benefits - pointed out by Ipstenu 
+		$results = wp_remote_get($url);
+		//$http_code = wp_remote_retrieve_response_code( $results );
 
-		$results = curl_exec($ch);
-
-		curl_close($ch);
-
-		return (array) json_decode(($results), true);
+		return (array) json_decode(($results['body']), true);
 	}
 
 	//------------------------------------------------------------------------------
