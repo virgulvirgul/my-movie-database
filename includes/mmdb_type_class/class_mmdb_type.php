@@ -397,9 +397,9 @@ abstract class MMDB_Type {
 	public function mmdb_the_template_view($mmdb_type, $rules = true) {
 
 		$file = null;
-		$template = $mmdb_type->template;
+		$template = $mmdb_type->get_template_setting();
 		$type_slug = $mmdb_type->type_slug;
-		$file = $mmdb_type->mmdb_set_template_order($template, $type_slug, $mmdb_type->view_type);
+		$file = $mmdb_type->mmdb_set_template_order($template, $type_slug, $mmdb_type->viewType());
 
 		if ($file) {
 			$tmdb = new TMDB();

@@ -32,8 +32,6 @@ class MMDB_Admin_Content_Type extends MMDB_Type {
 
 		$this->type_slug = $type_slug;	
 		$this->tmdb_id = $tmdb_id;
-		$this->template = $this->get_template_setting();
-		$this->view_type = $this->viewType();
 		$this->public_files = new MMDB_Public_Files;
 	}
 

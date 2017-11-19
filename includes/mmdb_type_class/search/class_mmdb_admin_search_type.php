@@ -33,8 +33,6 @@ class MMDB_Admin_Search_Type extends MMDB_Type {
 
 		$this->type_slug = $type_slug;
 		$this->tmdb_id = $tmdb_id;	
-		$this->template = $this->get_template_setting();
-		$this->view_type = $this->viewType();
 		$this->public_files = new MMDB_Public_Files;
 	}
 
@@ -123,7 +121,7 @@ class MMDB_Admin_Search_Type extends MMDB_Type {
 
         else {
 
-			$file = $mmdb_type->mmdb_set_template_order($mmdb_type->template, $mmdb_type->type_slug, $mmdb_type->view_type);
+			$file = $mmdb_type->mmdb_set_template_order($mmdb_type->get_template_setting(), $mmdb_type->type_slug, $mmdb_type->viewType());
 			include ($file);
 			$result = ob_get_clean();
 		}

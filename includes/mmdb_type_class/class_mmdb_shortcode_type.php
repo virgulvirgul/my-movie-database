@@ -31,13 +31,12 @@ class MMDB_Shortcode_Type extends MMDB_Type {
 	 * @param      string    $template    The template for the type object
 	 */
 
-	public function __construct($type_slug = 'movie', $tmdb_id = '655', $template = 'tabs', $size = 'medium') {
+	public function __construct($type_slug = 'movie', $tmdb_id = '655', $template = null, $size = null) {
 
 		$this->type_slug = $type_slug;
 		$this->tmdb_id = $tmdb_id;
 		$this->template = $template;
 		$this->size = $size;
-		$this->view_type = $this->viewType();
 		$data_type = $this->data_type_class() . $type_slug;
 		$this->tmdb_type = new $data_type($type_slug);
 		$this->public_files = new MMDB_Public_Files;
@@ -119,6 +118,25 @@ class MMDB_Shortcode_Type extends MMDB_Type {
 
 	}
 
+	/**
+	 * Get the template setting for type object
+	 * @since     1.1.1
+	 * @return    string   
+	 */
+
+	protected function get_template_setting() {
+
+		if($this->template) {
+			$template = $this->template;
+
+		} else {
+			$post_setting_name	= $this->plugin_slug() .'_'. $this->type_slug .'_tmpl';
+			$template = MMDB_Admin::mmdb_get_option($post_setting_name, $this->post_setting_group(), 'tabs');
+		}
+
+		return $template;
+	}
+
 
 	/**
 	 * Get the width setting for type object
@@ -129,8 +147,16 @@ class MMDB_Shortcode_Type extends MMDB_Type {
 
 	protected function get_width_setting() {
 
-		return $this->size;
-	}
+		if($this->size) {
+			$size = $this->size;
+
+		} else {
+			$post_setting_name	= $this->plugin_slug() .'_'. $this->type_slug .'_width';
+			$size = MMDB_Admin::mmdb_get_option($post_setting_name, $this->post_setting_group(), 'medium');
+		}
+
+		return $size;
+	}	
 
 
 

@@ -33,8 +33,6 @@ class MMDB_Content_Type extends MMDB_Type {
 		$this->type_slug = $type_slug;
 		$this->post_id = $post_id;		
 		$this->tmdb_id = $this->get_post_metaID_setting();
-		$this->template = $this->get_template_setting();
-		$this->view_type = $this->viewType();
 		$data_type = $this->data_type_class() . $type_slug;
 		$this->tmdb_type = new $data_type($type_slug);
 		$this->public_files = new MMDB_Public_Files;
