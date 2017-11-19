@@ -1,4 +1,4 @@
-<div id="mmdb-content_<?php echo esc_attr($mmdbID); ?>_mv">
+<div id="mmdb-content_<?php echo esc_attr($mmdbID); ?>">
     <div class="panel-group" id="<?php echo esc_attr($mmdbID); ?>_mv">
         <div class="panel panel-default">
             <div class="panel-heading">

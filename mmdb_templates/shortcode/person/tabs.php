@@ -1,5 +1,4 @@
-
-        <div id="mmdb-content_<?php echo esc_attr($mmdbID); ?>_ps">
+        <div id="mmdb-content_<?php echo esc_attr($mmdbID); ?>">
             <div class="mmdbTabs">
                 <?php if(($show_settings['section_2']) || ($show_settings['section_3']) || ($show_settings['section_4'])){ ?>
                 <ul class="nav nav-tabs">

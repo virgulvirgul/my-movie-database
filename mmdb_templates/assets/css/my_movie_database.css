@@ -192,6 +192,14 @@ div[id^='mmdb-content'] .mmdb-body {
     text-align: center;
     padding: 30px 10px;
 }
+
+div[id^='mmdb-content'] .panel-default > .panel-heading + .panel-collapse > .panel-body, div[id^='mmdb-content']  .panel-default  {
+    border: none;
+}
+
+div[id^='mmdb-content'] .nav-tabs {
+    border-bottom: none;
+}
 .fa-toggle-off::before {
     color: #fff
 }

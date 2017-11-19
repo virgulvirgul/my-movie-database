@@ -348,13 +348,23 @@ abstract class MMDB_Type {
 	 * @return   string   
 	 */
 
-	protected function my_dynamic_styles() {
+	protected function my_dynamic_styles($mmdbID, $template) {
 
 		$styles = array();
+		$header_color = $this->get_header_color_setting();
+		$uniqueID = '#mmdb-content_' . $mmdbID;
 		$type = $this->type_slug;
 
-		$css['.' . $this->plugin_slug() . '-header']["background-color"] = $this->get_header_color_setting();
-		$css['.' . $this->plugin_slug() . '-body']["background-color"] = $this->get_body_color_setting();
+		$css[$uniqueID . " ." . $this->plugin_slug() . "-header"]["background-color"] = $header_color;
+		if($template == 'tabs') {
+			$css[$uniqueID . " .nav-tabs > li.active > a,". $uniqueID ." .nav-tabs > li > a:hover"]["background-color"] = $header_color;
+			$css[$uniqueID . " .nav-tabs > li.active > a,". $uniqueID ." .nav-tabs > li > a:hover"]["border"] = $header_color . " 1px solid";
+			$css[$uniqueID . " .nav-tabs > li.active > a,". $uniqueID ." .nav-tabs > li > a:hover"]["border-color"] = $header_color;
+		}
+		elseif($template == 'accordion') {
+			$css[$uniqueID . " .panel,". $uniqueID ." .panel-default > .panel-heading"]["background-color"] = $header_color;
+		}
+		$css[$uniqueID . " ." . $this->plugin_slug() . "-body"]["background-color"] = $this->get_body_color_setting();
 
 		$output_css = '';
 		foreach($css as $style => $style_array) {
@@ -388,18 +398,19 @@ abstract class MMDB_Type {
 
 		$file = null;
 		$template = $mmdb_type->template;
-		$file = $mmdb_type->mmdb_set_template_order($template, $mmdb_type->type_slug, $mmdb_type->view_type);
+		$type_slug = $mmdb_type->type_slug;
+		$file = $mmdb_type->mmdb_set_template_order($template, $type_slug, $mmdb_type->view_type);
 
 		if ($file) {
 			$tmdb = new TMDB();
 			$mmdb = $mmdb_type->get_tmdb_content($tmdb);
 			if ($mmdb) {
 				ob_start();
-				$mmdbID = $mmdb->getID();
+				$mmdbID = $mmdb->getID() . '_' . $type_slug;
 				if ($rules) {
 					$show_settings = $mmdb_type->mmdb_show_settings($mmdb_type->mmdb_view_sections());
 					$show_settings = $mmdb_type->mmdb_show_if_data($show_settings, $mmdb);
-					$mmdb_type->my_dynamic_styles();
+					$mmdb_type->my_dynamic_styles($mmdbID, $template);
 				}
 				include ($file);
 				//var_dump($show_settings);
