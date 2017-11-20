@@ -1,4 +1,4 @@
-                        <?php if(($show_settings['section_2']) || ($show_settings['section_3']) || ($show_settings['section_4'])){ ?>
+                        <?php if(isset($show_settings['section_2']) || isset($show_settings['section_3']) || isset($show_settings['section_4'])){ ?>
                         <div class="mmdb-header">
                             <h3 class="mmdb-header-title"><?php esc_html_e("Summary", 'my-movie-db');?></h3>
                         </div>
@@ -69,7 +69,7 @@
 
                                 </div><!-- .mmdb-meta -->
                             </div><!-- .col -->
-                            <?php if($show_settings['overview_text']){ ?>
+                            <?php if(isset($show_settings['overview_text'])){ ?>
                             <div class="col-md-12" style="text-align:left;"> 
                                 <?php echo esc_textarea($mmdb->getΒiography()) ?>
                             </div>

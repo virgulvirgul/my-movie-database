@@ -180,7 +180,7 @@ abstract class MMDB_Type {
 	 */
 
 	protected function mmdb_view_sections() {
-		$views = array ('overview_text' => 'overview_text', 'section_2' => 'section_2', 'section_3' => 'section_3', 'section_4' => 'section_4');
+		$views = array ('overview_text', 'section_2', 'section_3', 'section_4');
 
 		return $views;
 
@@ -220,7 +220,7 @@ abstract class MMDB_Type {
 
 	protected function mmdb_show_settings($views) {
 
-		foreach($views as $view => $view_value) {
+		foreach($views as $view) {
 	
  			$view_value = $this->mmdb_show_section($view);
 			$result[$view] = $view_value;

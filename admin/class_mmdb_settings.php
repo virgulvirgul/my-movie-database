@@ -294,8 +294,8 @@ class MMDB_Αdmin_Settings {
                 ),
                 array(
                     'name'    => 'mmdb_css_file',
-                    'label'   => esc_html__( 'Include mmdb css file', 'my-movie-db' ),
-                    'desc'    => esc_html__( 'Default templates require bootstrap libraries, select No if you dont want this plugin to include them', 'my-movie-db' ),
+                    'label'   => esc_html__( 'Include plugin css file', 'my-movie-db' ),
+                    'desc'    => esc_html__( 'Select when to load the plugin css file, selecting No will never load the plugin css file', 'my-movie-db' ),
                     'type'    => 'select',
                     'default' => 'yes',
                     'options' => array(
