@@ -31,12 +31,14 @@ class MMDB_Shortcode_Type extends MMDB_Type {
 	 * @param      string    $template    The template for the type object
 	 */
 
-	public function __construct($type_slug = 'movie', $tmdb_id = '655', $template = null, $size = null) {
+	public function __construct($type_slug = 'movie', $tmdb_id = '655', $template = null, $size = null, $hcolor = null, $bcolor = null) {
 
 		$this->type_slug = $type_slug;
 		$this->tmdb_id = $tmdb_id;
 		$this->template = $template;
 		$this->size = $size;
+		$this->header_color = $hcolor;
+		$this->body_color = $bcolor;
 		$data_type = $this->data_type_class() . $type_slug;
 		$this->tmdb_type = new $data_type($type_slug);
 		$this->public_files = new MMDB_Public_Files;
@@ -77,6 +79,8 @@ class MMDB_Shortcode_Type extends MMDB_Type {
                                      'type' => $this->type_slug,
                                      'template' => $this->template,
                                      'size' => $this->size,
+                                     'body' => $this->body_color,
+                                     'header' => $this->header_color
                                  ], $atts, $tag); 
 
 		return $this->mmdb_the_shortcode_view($mmdb_show_atts);
@@ -94,7 +98,7 @@ class MMDB_Shortcode_Type extends MMDB_Type {
 
 	protected function mmdb_set_shortcode_content($mmdb_show_atts) {
 
-		$mmdb_type = new MMDB_Shortcode_Type($mmdb_show_atts['type'], $mmdb_show_atts['id'], $mmdb_show_atts['template'], $mmdb_show_atts['size']);
+		$mmdb_type = new MMDB_Shortcode_Type($mmdb_show_atts['type'], $mmdb_show_atts['id'], $mmdb_show_atts['template'], $mmdb_show_atts['size'], $mmdb_show_atts['body'],  $mmdb_show_atts['header']);
 
 		return $mmdb_type;
 	}	
@@ -127,14 +131,59 @@ class MMDB_Shortcode_Type extends MMDB_Type {
 	protected function get_template_setting() {
 
 		if($this->template) {
-			$template = $this->template;
+			$setting = $this->template;
 
 		} else {
 			$post_setting_name	= $this->plugin_slug() .'_'. $this->type_slug .'_tmpl';
-			$template = MMDB_Admin::mmdb_get_option($post_setting_name, $this->post_setting_group(), 'tabs');
+			$setting = MMDB_Admin::mmdb_get_option($post_setting_name, $this->post_setting_group(), 'tabs');
 		}
 
-		return $template;
+		return $setting;
+	}
+
+	/**
+	 * Get the header color setting for type object
+	 *
+	 * @since     1.1.1
+	 * @return    string    
+	 */
+
+	protected function get_header_color_setting() {
+
+		if($this->header_color) {
+			$setting = $this->header_color;
+
+		} else {
+
+		$post_setting_name	= $this->plugin_slug() .'_'. $this->type_slug .'_header_color';
+		$setting = MMDB_Admin::mmdb_get_option($post_setting_name, $this->post_setting_group(), '#265a88');
+
+		}
+
+		return $setting;
+	}
+
+
+	/**
+	 * Get the body color setting for type object
+	 *
+	 * @since     1.1.1
+	 * @return    string    
+	 */
+
+	protected function get_body_color_setting() {
+
+		if($this->body_color) {
+			$setting = $this->body_color;
+
+		} else {
+
+		$post_setting_name	= $this->plugin_slug() .'_'. $this->type_slug .'_body_color';
+		$setting = MMDB_Admin::mmdb_get_option($post_setting_name, $this->post_setting_group(), '#DCDCDC');
+
+		}
+
+		return $setting;
 	}
 
 
@@ -148,14 +197,14 @@ class MMDB_Shortcode_Type extends MMDB_Type {
 	protected function get_width_setting() {
 
 		if($this->size) {
-			$size = $this->size;
+			$setting = $this->size;
 
 		} else {
 			$post_setting_name	= $this->plugin_slug() .'_'. $this->type_slug .'_width';
-			$size = MMDB_Admin::mmdb_get_option($post_setting_name, $this->post_setting_group(), 'medium');
+			$setting = MMDB_Admin::mmdb_get_option($post_setting_name, $this->post_setting_group(), 'medium');
 		}
 
-		return $size;
+		return $setting;
 	}	
 
 

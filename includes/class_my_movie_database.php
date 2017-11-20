@@ -65,7 +65,7 @@ class My_movie_database {
 
 		$this->plugin_name = 'my_movie_database';
 		$this->plugin_slug = 'my_movie_db';
-		$this->version = '1.1.0';
+		$this->version = '1.1.1';
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
