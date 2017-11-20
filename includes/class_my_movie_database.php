@@ -88,13 +88,13 @@ class My_movie_database {
 		 * The class responsible for orchestrating (many of) the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class_my_movie_database_loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class_mmdb_loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class_my_movie_database_i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class_mmdb_i18n.php';
 
 		/**
 		 * A Wordpress Settings API wrapper class (by Tareq Hasan).
