@@ -3,6 +3,7 @@
     $(document).ready(function() {
 
         $('#search_mmdb').click(function() {
+            $('#loader').css('display', 'block');
             var key = $('#key_mmdb').val();
             var posttype;
             $.each($('body').attr('class').split(' '), function(index, className) {
@@ -20,6 +21,7 @@
                 }
             }).done(function(msg) {
                 $("#resultHtml").html(msg);
+                $('#loader').css('display', 'none');
             });
         });
 

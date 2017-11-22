@@ -89,11 +89,13 @@ class MMDB_Public {
 
 		$result = false;
 		global $post;
-
-    	if ( has_shortcode( $post->post_content, 'my_movie_db') ) {
-			$result = true;
+		// $post not set on 404 pages, returns Trying to get property of non-object
+		if (isset( $post )) {
+ 
+			if ( has_shortcode( $post->post_content, 'my_movie_db') ) {
+				$result = true;
+			}
 		}
-
 		return $result;
 	}
 

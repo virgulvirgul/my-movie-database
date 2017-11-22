@@ -1190,3 +1190,23 @@ hr {
         height: 150px;
     }
 }
+#loader {
+    background: rgba(0,0,0,0.5);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+	display: none;
+}
+#loaderInner {
+    height: 60px;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    position: absolute;
+    top: 50%;
+    width: 60px;
+}

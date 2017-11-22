@@ -24,6 +24,7 @@
             </div>
             <div class="col-lg-6 col-lg-offset-3" style="margin-bottom:15px;">
                 <div id="search_mmdb" class="button-primary" name="search_mmdb" style="cursor:pointer;" /> <?php esc_html_e('Search Database', 'my-movie-db'); ?></div>
+                <div id="loader" /><div id="loaderInner" style="background: transparent url(<?php echo plugin_dir_url( dirname(__FILE__)) . 'img/ajax-loader.gif';?>) center center no-repeat;"></div></div>
             </div>
             <div class="clearfix"></div>
             <div id="resultHtml"></div>
