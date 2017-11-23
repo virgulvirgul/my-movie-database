@@ -239,7 +239,12 @@ class Movie{
 			$cast[] = $data;
 
 		}
-		
+
+		usort($cast,function($a,$b){
+			$c = $a['order'] - $b['order'];
+			return $c;
+		});        
+
 		return $cast;
 	}
 

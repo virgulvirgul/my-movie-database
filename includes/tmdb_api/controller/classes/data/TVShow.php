@@ -229,13 +229,17 @@ class TVShow{
 
 	public function getCast() {
 
-		$cast = null;
 		foreach ($this->_data['credits']['cast']as $data) {
 
 			$cast[] = $data;
 
 		}
 		
+		usort($cast,function($a,$b){
+			$c = $a['order'] - $b['order'];
+			return $c;
+		});
+
 		return $cast;
 	}
 
@@ -247,7 +251,6 @@ class TVShow{
 
 	public function getCrew() {
 
-		$crew = null;
 		foreach ($this->_data['credits']['crew']as $data) {
 
 			$crew[] = $data;
