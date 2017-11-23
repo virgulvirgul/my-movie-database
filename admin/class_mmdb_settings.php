@@ -50,7 +50,7 @@ class MMDB_Αdmin_Settings {
     }
 
     public function admin_menu() {
-        add_options_page( 'The Movie Database for WP Options', 'Movie Database', 'manage_options', 'mmdb_settings', array($this, 'plugin_page') );
+        add_options_page( 'The Movie Database for WP Options', 'My Movie Database', 'manage_options', 'mmdb_settings', array($this, 'plugin_page') );
     }
 
 
@@ -365,7 +365,7 @@ class MMDB_Αdmin_Settings {
      */
 
     public function plugin_page() {
-        echo '<h1>My Movie Database (MMDB) for Wordpress Options</h1>';
+        echo '<div style="height:70px;"><img src="' . plugin_dir_url( dirname(__FILE__)) . 'admin/img/icon-64x64.png" style="float:left;padding: 10px 0; "/><h1 style="float:left;padding: 15px 10px;">My Movie Database Options</h1></div>';
         echo '<div class="wrap">';
 
         $this->settings_api->show_navigation();

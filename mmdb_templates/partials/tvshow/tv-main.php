@@ -22,7 +22,7 @@
                                     </div>
                                     <?php if($mmdb->getCast()) {?>
                                     <div><strong><?php echo esc_html__("Starring", 'my-movie-db') . ': ';?></strong> 
-                                       <?php echo esc_html(mmdb_get_csv_list($mmdb->getCast(), 'name', '4'));?>
+                                    	<?php echo esc_html(mmdb_get_cast_list($mmdb, '4')); ?>
                                     </div>
                                     <?php } ?>
                                     <div><strong><?php echo esc_html__("Episodes / Seasons", 'my-movie-db') . ': ';?></strong> 
